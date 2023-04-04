@@ -6,6 +6,9 @@ App was created to monitor where and for how long each employee worked in certai
 ![image](https://user-images.githubusercontent.com/90956337/229802985-ffe23d5b-ccfb-4af7-9aef-19793b165da8.png)
 
 By clicking 'rozpocznij prace' we creating database entry about given day, mostly is today(). After creating our working day we can add task and modify then. Beside some minors securities like imposibility to end work day without ending all the task we added, we also check if we do not have day started yesterday(assuming night shift).
+Also we can not start second working day in the same day.
+![image](https://user-images.githubusercontent.com/90956337/229806536-53a8df91-b99a-4bcd-a3c1-3c05d4aab73a.png)
+
 Management have access to all sort of filters, and task, project that are working on today:
 
 ![image](https://user-images.githubusercontent.com/90956337/229804411-2478e7ba-e8fd-4e32-906e-69f96757893f.png)
