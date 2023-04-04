@@ -1,0 +1,43 @@
+{% extends 'accounts/base.html' %}
+{% block title %} Strona logowania {% endblock %}
+{% block section_one %}
+
+
+<section class="car_view" style="align-items: start">
+<div class="container-sm">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-5">
+            <form method="POST" novalidate class="d-grid gap-0 bg-dark bg-gradient p-2 rounded">
+                <table class="table table-responsive table-bordered table-hover table-dark">
+                    <tr>
+                        {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <div id="form_errors" style="text-align: center">
+                                    {% for value in form.errors.values %}
+                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                        <strong>{{ value.as_text|cut:"* " }}</strong><br>
+                                    {% endfor %}
+                                </div>
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Zamknij"></button>
+                            </div>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td style="font-size: large; vertical-align: middle">Email</td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: large; vertical-align: middle">Hasło</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+                    <button name="dodaj" class="btn btn-success btn-lg bg-gradient mb-2" style="font-size: large">Zaloguj</button>
+                    {% comment %} <a href="{% url 'password_reset' %}" class="btn btn-warning btn-lg bg-gradient fs-3"  role="button">Reset hasła</a> {% endcomment %}
+                    {% csrf_token %}
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}
+
