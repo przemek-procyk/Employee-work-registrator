@@ -1,0 +1,19 @@
+{% extends "accounts/base.html" %}
+{% block section_one %}
+
+<section class="car_view" style="align-items: start">
+<div class="container-sm">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-5">
+            <div novalidate class="d-grid gap-0 bg-dark bg-gradient p-2 rounded" style="text-align: center; color: red">
+                403: {{ exception }} 
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<div style="height:200vh"></div>
+{% endblock %}
+
+{% comment %} <a href="{% url 'users-registration' %}" class="btn btn-primary btn-lg bg-gradient mb-2 fs-3"  role="button">Nie masz konta? Zarejestruj się</a>
+<a href="{% url 'password_reset' %}" class="btn btn-warning btn-lg bg-gradient fs-3"  role="button">Reset hasła</a> {% endcomment %}

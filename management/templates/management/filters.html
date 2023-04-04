@@ -1,0 +1,22 @@
+{% extends "management/base_manage.html" %}
+
+{% block section_one%}
+
+<section class="car_view" style="align-items: start">
+    <div class="container-sm">
+        <div class="row justify-content-md-center">
+            <div class="col-sm-5">
+                <div novalidate class="d-grid gap-0 bg-dark bg-gradient p-2 rounded">
+                        <a href="{% url 'workdayfilter' %}" class="btn btn-primary btn-lg bg-gradient fs-3 mb-3"  role="button">Dni Pracy</a>
+                        <a href="{% url 'projectfilter' %}" class="btn btn-danger btn-lg bg-gradient fs-3 mb-3"  role="button">Projekty</a>
+                        <a href="{% url 'taskfilter' %}" class="btn btn-info btn-lg bg-gradient fs-3 mb-3"  role="button">Zadania</a>
+                        <a href="{% url 'workerfilter' %}" class="btn btn-secondary btn-lg bg-gradient fs-3 mb-1"  role="button">Pracownicy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:10vh"></div>
+</section>
+
+
+{% endblock%}

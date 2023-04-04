@@ -1,0 +1,124 @@
+{% extends "management/base_manage.html" %}
+
+{% block section_one %}
+    <section class="car_view">
+        <section class="car_table">
+            <form method="get" class="d-grid gap-2 bg-dark bg-gradient p-2 shadow rounded">
+                <table class="table table-responsive table-bordered table-hover table-striped table-dark fs-2">
+                    <h2 style="color:white; text-align: center">Wybierz Pracownika</h2>
+                    <tr>
+                        <td>Pracownik</td>
+                        <td>{{ filter.form.employee }}</td>
+                    </tr>
+                </table>
+                <button name="filtruj" class="shadow btn btn-lg btn-outline-success px-4 fs-2">Filtruj</button>
+            </form>
+        </section>
+    </section>
+    
+    <div style="height:5vh"></div>
+    <section class="car_view" style="align-items: start">
+        <div class="container-sm">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-5">
+                    <div novalidate class="d-grid gap-0 bg-dark bg-gradient p-2 rounded mt-4">
+                        <button name="filtruj" class="shadow btn btn-lg btn-success px-4 fs-2" style="pointer-events: none">OBECNOŚCI</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height:10vh"></div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            {% for workday in workhoursregistry_list %}
+            {% if workday.status == 'P' %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="shadow card mb-3 bg-dark bg-gradient">
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <table class="table table-responsive table-bordered table-hover table-striped table-dark">
+                                    <span style="text-align: center; color: #C1A94A; font-size: 1.2em">
+                                        Dzień pracy
+                                    </span>
+                                    <tr>
+                                        <td>Start</td>
+                                        <td>{{ workday.start }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stop</td>
+                                        <td>{{ workday.stop }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pracownik</td>
+                                        <td>{{ workday.employee }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nr. tel</td>
+                                        <td>{{ workday.employee.mobile_nr }}</td>
+                                    </tr>
+                                </table>
+                                <a href="{% url 'tasklist' workday.id %}" class="shadow btn btn-outline-warning px-4" style="font-size: large" role="button">Zadania</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section> 
+
+    
+    <section class="car_view" style="align-items: start">
+        <div class="container-sm">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-5">
+                    <div novalidate class="d-grid gap-0 bg-dark bg-gradient p-2 rounded mt-4">
+                        <button name="filtruj" class="shadow btn btn-lg btn-danger px-4 fs-2">NIEOBECNOŚCI</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height:10vh"></div>
+    </section>
+    <section class="container">
+        <div class="row">
+            {% for workday in workhoursregistry_list %}
+                {% if workday.status != 'P' %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="shadow card mb-3 bg-dark bg-gradient">
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <table class="table table-responsive table-bordered table-hover table-striped table-dark">
+                                        <tr>
+                                            <td>Start</td>
+                                            <td>{{ workday.start }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stop</td>
+                                            <td>{{ workday.stop }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pracownik</td>
+                                            <td>{{ workday.employee }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nr. tel</td>
+                                            <td>{{ workday.employee.mobile_nr }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color:red">Status</td>
+                                            <td style="color:red">{{ workday.get_status_display }}</td>
+                                        </tr>
+                                    </table>
+                                    {% comment %} <a href="{% url 'car_detail' obj.id %}" class="shadow btn btn-outline-light px-4" style="font-size: large" role="button">Wypożycz</a> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %} 
+            {% endfor %}           
+        </div>
+    </section>
+{% endblock %}
