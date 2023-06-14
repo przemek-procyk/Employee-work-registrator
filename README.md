@@ -16,3 +16,6 @@ Management have access to all sort of filters, and task, project that are workin
 
 They can manipulate dates, employees and projects to see who had been working on certain task and where to their needs.
 Also they have access to overhour tab, in which they can see how much overhours certains workes accuired. 
+
+Additional featuers:
+![image](https://github.com/przemek-procyk/Employee-work-registrator/assets/90956337/511baca9-9535-466f-9e86-7e5a812a0f39)
